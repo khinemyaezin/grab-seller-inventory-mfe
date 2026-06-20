@@ -2,6 +2,7 @@ import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ThemeProvider, Toaster } from "@grab/seller-ui";
+import { defaultRuntimeConfig } from "@grab/seller-contracts";
 import InventoryRoutes from "./InventoryRoutes";
 
 export default function StandaloneApp() {

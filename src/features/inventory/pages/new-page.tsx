@@ -18,7 +18,7 @@ export default function NewLocationPage() {
       >
         <ButtonGroup>
           <Button type="button" variant="secondary">
-            <Link to={routes.admin.locations} className="flex gap-2 items-center">
+            <Link to={routes.locations} className="flex gap-2 items-center">
               <ArrowLeftIcon />
               <span>Back to Locations</span>
             </Link>

@@ -79,7 +79,7 @@ export function ZoneTable({
                     <h4 className="text-sm font-medium">Bins</h4>
                     {createBinLink && (
                       <Button type="button" size="sm" variant="outline" asChild>
-                        <Link to={routes.admin.newBin(locationId, zone.id)} className="flex items-center gap-1">
+                        <Link to={routes.newBin(locationId, zone.id)} className="flex items-center gap-1">
                           <PlusIcon className="size-3" />
                           Add Bin
                         </Link>
@@ -103,7 +103,7 @@ export function ZoneTable({
                   <DropdownMenuGroup>
                     {hasLink(zone._links, "edit-zone") && (
                       <DropdownMenuItem asChild>
-                        <Link to={routes.admin.editZone(locationId, zone.id)}>Edit</Link>
+                        <Link to={routes.editZone(locationId, zone.id)}>Edit</Link>
                       </DropdownMenuItem>
                     )}
                     {activateLink && (

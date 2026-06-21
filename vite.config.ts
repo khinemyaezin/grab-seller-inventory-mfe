@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => ({
     port: 3002,
     origin: "http://localhost:3002",
     cors: { origin: "http://localhost:3000" },
-    proxy: { "/api": { target: "http://localhost:8080", changeOrigin: true } },
+    proxy: { "/api": { target: "http://localhost:8080", changeOrigin: true, xfwd: true } },
   },
   preview: { port: 3002 },
   build: { target: "chrome111" },

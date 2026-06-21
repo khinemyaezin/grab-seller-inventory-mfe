@@ -6,8 +6,6 @@ import type { InventoryRoot } from "@/features/inventory/types";
 
 export function useInventoryRoot() {
   const { data: apiRoot } = useApiRoot();
-  console.log(apiRoot)
-
   return useQuery<InventoryRoot>({
     queryKey: ["inventory-root", apiRoot?.inventory?.href],
     queryFn: () => fetchInventoryRoot(apiRoot!.inventory!),

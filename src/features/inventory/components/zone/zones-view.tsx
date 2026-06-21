@@ -22,7 +22,7 @@ export default function ZonesView({ locationId, link, canCreate }: ZonesViewProp
                     <ButtonGroup>
                         {canCreate && (
                             <Button type="button">
-                                <Link to={routes.admin.newZone(locationId)}>Add Zone</Link>
+                                <Link to={routes.newZone(locationId)}>Add Zone</Link>
                             </Button>
                         )}
                     </ButtonGroup>

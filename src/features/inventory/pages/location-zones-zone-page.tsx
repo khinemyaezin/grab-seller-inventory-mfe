@@ -31,7 +31,7 @@ export default function EditZonePage() {
             >
                 <ButtonGroup>
                     <Button variant="secondary" size="icon" type="button">
-                        <Link to={routes.admin.zones(id)} className="flex gap-2 items-center">
+                        <Link to={routes.zones(id)} className="flex gap-2 items-center">
                             <ArrowLeftIcon />
                         </Link>
                     </Button>

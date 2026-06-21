@@ -1,18 +1,24 @@
-FROM node:22-alpine AS platform
-WORKDIR /workspace/grab-seller-shared-ui
-COPY grab-seller-shared-ui/package*.json grab-seller-shared-ui/tsconfig.base.json ./
-COPY grab-seller-shared-ui/packages ./packages
-RUN npm ci && npm run build
+FROM node:22-alpine AS build
 
-FROM node:22-alpine AS builder
-WORKDIR /workspace/grab-seller-inventory
-COPY grab-seller-inventory/package*.json ./
-COPY --from=platform /workspace/grab-seller-shared-ui /workspace/grab-seller-shared-ui
-RUN npm ci
-COPY grab-seller-inventory/ ./
-RUN npm run build
+WORKDIR /workspace
 
-FROM nginx:1.29-alpine
+COPY grab-seller-shared-ui ./grab-seller-shared-ui
+RUN cd grab-seller-shared-ui \
+    && npm ci \
+    && npm run build
+
+COPY grab-seller-inventory ./grab-seller-inventory
+RUN cd grab-seller-inventory \
+    && npm ci \
+    && npm run build
+
+FROM nginx:1.27-alpine AS runtime
+
 COPY grab-seller-inventory/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /workspace/grab-seller-inventory/dist /usr/share/nginx/html
+COPY --from=build /workspace/grab-seller-inventory/dist /usr/share/nginx/html
+
 EXPOSE 80
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget -q --spider http://127.0.0.1/mf-manifest.json || exit 1
+

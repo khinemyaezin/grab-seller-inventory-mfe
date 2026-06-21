@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     federation({
-      name: "seller_inventory",
+      name: "grab_seller_inventory",
       filename: "remoteEntry.js",
       manifest: true,
       dts: { generateTypes: { tsConfigPath: "./tsconfig.app.json", abortOnError: true } },

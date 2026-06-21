@@ -1,5 +1,5 @@
 {
-  "name": "seller-inventory-mfe",
+  "name": "grab-seller-inventory",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -43,5 +43,7 @@
     "vite": "8.0.16",
     "vitest": "4.1.9"
   },
-  "engines": { "node": ">=20.19.0" }
+  "engines": {
+    "node": ">=20.19.0"
+  }
 }

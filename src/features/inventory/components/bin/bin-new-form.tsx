@@ -38,7 +38,7 @@ export default function BinNewForm({ link, locationId, zoneId }: BinNewFormProps
     try {
       await createBinMutation.mutateAsync({ link, request: { ...value, zoneId } });
       toast.success("Bin created", { position: "top-center" });
-      navigate(routes.admin.zones(locationId));
+      navigate(routes.zones(locationId));
     } catch {
       toast.error("Failed to create bin", { position: "top-center" });
     }

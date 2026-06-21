@@ -29,14 +29,14 @@ export default function ZonesPage() {
         description="Manage zones and bins for this location."
       >
         <Button variant="secondary">
-          <Link to={routes.admin.locations} className="flex gap-2 items-center">
+          <Link to={routes.locations} className="flex gap-2 items-center">
             <ArrowLeftIcon />
             <span>Back to Locations</span>
           </Link>
         </Button>
       </Header>
 
-      { location && (
+      {location && (
         <LocationSummary location={location} />
       )}
 

@@ -72,7 +72,7 @@ export function BinTable({ locationId, zoneId, link }: BinTableProps) {
                   <DropdownMenuGroup>
                     {hasLink(bin._links, "edit-bin") && (
                       <DropdownMenuItem asChild>
-                        <Link to={routes.admin.editBin(locationId, zoneId, bin.id)}>Edit</Link>
+                        <Link to={routes.editBin(locationId, zoneId, bin.id)}>Edit</Link>
                       </DropdownMenuItem>
                     )}
                     {activateLink && (

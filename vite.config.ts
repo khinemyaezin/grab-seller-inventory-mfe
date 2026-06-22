@@ -7,12 +7,12 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    base: mode === "development" ? "/" : "/mfe/inventory/",
+    base: mode === "development" ? "/" : "/mfe/grab-seller-inventory/",
     resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
     plugins: [
       react(),
       federation({
-        name: "seller_inventory",
+        name: "grab_seller_inventory",
         filename: "remoteEntry.js",
         manifest: true,
         dts: { generateTypes: { tsConfigPath: "./tsconfig.app.json", abortOnError: true } },

@@ -71,7 +71,7 @@ export default function LocationTable({ link, filter, onPageChange }: LocationTa
               <TableCell className="font-medium">
                 {hasLink(location._links, "self") ? (
                   <Link
-                    to={routes.admin.zones(location.id)}
+                    to={routes.zones(location.id)}
                     className="text-blue-600 hover:underline"
                   >
                     {location.code}
@@ -103,7 +103,7 @@ export default function LocationTable({ link, filter, onPageChange }: LocationTa
                     <DropdownMenuGroup>
                       {hasLink(location._links, "edit-location") && (
                         <DropdownMenuItem asChild>
-                          <Link to={routes.admin.editLocation(location.id)}>Edit</Link>
+                          <Link to={routes.editLocation(location.id)}>Edit</Link>
                         </DropdownMenuItem>
                       )}
                       {activateLink && (

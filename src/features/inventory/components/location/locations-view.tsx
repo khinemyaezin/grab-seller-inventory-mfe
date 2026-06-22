@@ -24,7 +24,7 @@ export default function LocationsView({ link, canCreate }: LocationsViewProps) {
                 <CardAction>
                     {canCreate && (
                         <Button>
-                            <Link to={routes.admin.newLocation}>
+                            <Link to={routes.newLocation}>
                                 Add location
                             </Link>
                         </Button>
